@@ -20,7 +20,7 @@ let
     @test length(ext) == 2
     @test pull_features!(ext, [NaN,NaN], rec, roadway, 1) == [10.0, 0.0]
 
-    subset_ext = SubsetExtractor{ext}([1])
+    subset_ext = SubsetExtractor(ext, [1])
     @test rec_length(subset_ext) == 2
     @test length(subset_ext) == 1
     @test pull_features!(subset_ext, [NaN], rec, roadway, 1) == [10.0]

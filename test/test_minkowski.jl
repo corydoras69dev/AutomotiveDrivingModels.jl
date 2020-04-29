@@ -6,15 +6,15 @@ let
 
     td = get_test_trajdata()
     scene = Scene()
-    print(`scene=`)
-    println(scene)
+#    print(`scene=`)
+#    println(scene)
 
     g = get!(scene, td, 1)
-    print(`g=`)
-    println(g)
+#    print(`g=`)
+#    println(g)
     col = get_first_collision(g)
-    print(`col=`)
-    println(col)
+#    print(`col=`)
+#    println(col)
     @test col.A == 1
     @test col.B == 2
     @test col.is_colliding == true
