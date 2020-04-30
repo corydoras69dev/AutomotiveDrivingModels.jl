@@ -19,8 +19,8 @@ end
 function Base.convert(::Type{Trajdata}, tdem::TrajdataEditMode)
     roadway = tdem.roadway
     vehicles = Dict{Int, VehicleDef}()
-    states = Array(TrajdataState, sum(s->length(s), tdem.scenes))
-    frames = Array(TrajdataFrame, length(tdem.scenes))
+    states = Array{TrajdataState}(sum(s->length(s), tdem.scenes))
+    frames = Array{TrajdataFrame}(length(tdem.scenes))
 
     states_index = 0
     for (frame_index, scene) in enumerate(tdem.scenes)
@@ -71,7 +71,7 @@ end
 
 function interpolate_to_timestep!(tdem::TrajdataEditMode, timestep::Float64)
     time = collect(tdem.time[1]:timestep:tdem.time[end])
-    scenes = Array(Scene, length(time))
+    scenes = Array{Scene}(length(time))
     scenes[1] = tdem.scenes[1]
 
     frame_old = 1

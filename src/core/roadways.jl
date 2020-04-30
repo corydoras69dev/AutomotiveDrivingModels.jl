@@ -570,7 +570,7 @@ function _fit_curve(
     @assert(!any(s->isnan(s), y_arr))
     @assert(!any(s->isnan(s), θ_arr))
 
-    curve = Array(CurvePt, n)
+    curve = Array{CurvePt}(n)
     for i in 1 : n
         pos = VecSE2(x_arr[i], y_arr[i], θ_arr[i])
         curve[i] = CurvePt(pos, s_arr[i], κ_arr[i], κd_arr[i])
@@ -616,7 +616,7 @@ function read_dxf(io::IO, ::Type{Roadway};
                 N = parse(Int, lines[i+1])
                 N > 0 || error("Empty line segment!")
 
-                pts = Array(VecE2, N)
+                pts = Array{VecE2}(N)
 
                 i = findnext(lines, " 10\n", i)
                 i != 0 || error("First point not found in AcDbPolyline!")
@@ -723,7 +723,7 @@ function read_dxf(io::IO, ::Type{Roadway};
         # then project each lane's midpoint to the perpendicular at the midpoint
 
         @assert(!isempty(lanetags))
-        proj_positions = Array(Float64, length(lanetags))
+        proj_positions = Array{Float64}(length(lanetags))
 
         first_lane_pts = lane_pts_dict[lanetags[1]]
         n = length(first_lane_pts)
@@ -746,7 +746,7 @@ function read_dxf(io::IO, ::Type{Roadway};
             boundary_right = i == 1 ? LaneBoundary(:solid, :white) : LaneBoundary(:broken, :white)
 
             pts = lane_pts_dict[tag]
-            pt_matrix = Array(Float64, 2, length(pts))
+            pt_matrix = Array{Float64}(2, length(pts))
             for (k,P) in enumerate(pts)
                 pt_matrix[1,k] = P.x
                 pt_matrix[2,k] = P.y
