@@ -1,4 +1,4 @@
-export
+﻿export
     EvaluationData,
 
     get_trajdata,

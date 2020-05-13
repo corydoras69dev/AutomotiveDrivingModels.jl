@@ -1,4 +1,4 @@
-export PrerecordedDriver
+﻿export PrerecordedDriver
 
 type PrerecordedDriver <: DriverModel{NextState, IntegratedContinuous}
     trajdata::Trajdata # log we pull from

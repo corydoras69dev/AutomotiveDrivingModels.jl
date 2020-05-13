@@ -1,4 +1,4 @@
-
+﻿
 immutable CurvePt
     pos::VecSE2 # global position and orientation
     s::Float64  # distance along the curve

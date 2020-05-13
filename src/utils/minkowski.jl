@@ -1,4 +1,4 @@
-# Collision Detection routines based on Minkowski techniques.
+﻿# Collision Detection routines based on Minkowski techniques.
 
 export
         ConvexPolygon,

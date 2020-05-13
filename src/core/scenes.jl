@@ -1,4 +1,4 @@
-type Scene
+﻿type Scene
     vehicles::Vector{Vehicle} # this is a pre-allocated array that is at least as large as the maximum number of vehicles in a Trajdata frame
     n_vehicles::Int
 

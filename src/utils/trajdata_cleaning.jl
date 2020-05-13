@@ -1,4 +1,4 @@
-export
+﻿export
     TrajdataEditMode,
 
     remove_offroad_vehicles!,

@@ -1,4 +1,4 @@
-export StaticGaussianDriver
+﻿export StaticGaussianDriver
 
 type StaticGaussianDriver{A} <: DriverModel{A,IntegratedContinuous}
     C::IntegratedContinuous

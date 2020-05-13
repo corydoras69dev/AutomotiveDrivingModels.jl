@@ -1,4 +1,4 @@
-immutable TrajdataFrame
+﻿immutable TrajdataFrame
     lo::Int # index in states of first vehicle in scene
     hi::Int # index in states of last vehicle in scene
     t::Float64 # time

@@ -1,4 +1,4 @@
-"""
+﻿"""
     AutoCore
 Defines the core Automotive Types
 """

@@ -1,4 +1,4 @@
-type SceneRecord
+﻿type SceneRecord
     scenes::Vector{Scene}
     timestep::Float64
     nscenes::Int # number of active scenes

@@ -1,4 +1,4 @@
-export Tim2DDriver
+﻿export Tim2DDriver
 
 type Tim2DDriver <: DriverModel{LatLonAccel, IntegratedContinuous}
     rec::SceneRecord
