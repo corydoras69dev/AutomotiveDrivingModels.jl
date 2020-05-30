@@ -40,6 +40,7 @@ function extract!(
     roadway::Roadway,
     egoid::Int,
     )
+    debug = open("debug.log", "a"); println(debug, "extract!(metric::RootWeightedSquareError,...)");  close(debug)
 
     # TODO: how to handle missing values???
 
@@ -73,11 +74,13 @@ end
 Base.Symbol(::SumSquareJerk) = :sumsquarejerk
 get_score(m::SumSquareJerk) = m.running_sum / m.n_obs
 function reset!(metric::SumSquareJerk)
+    debug = open("debug.log", "a"); println(debug, "reset!(metric::SumSquareJerk)");  close(debug)
     metric.running_sum = 0.0
     metric.n_obs = 0
     metric
 end
 function extract_sum_square_jerk(rec::SceneRecord, roadway::Roadway, egoid::Int)
+    debug = open("debug.log", "a"); println(debug, "extract_sum_square_jerk(rec::SceneRecord, roadway::Roadway, egoid::Int)");  close(debug)
     sumsquarejerk = 0.0
     for pastframe in 3-length(rec) : 0
         vehicle_index = get_index_of_first_vehicle_with_id(rec, egoid, pastframe)
@@ -93,6 +96,7 @@ function extract!(
     roadway::Roadway,
     egoid::Int,
     )
+    debug = open("debug.log", "a"); println(debug, "extract!(metric::SumSquareJerk,...)");  close(debug)
 
     metric.running_sum += extract_sum_square_jerk(rec_sim, roadway, egoid)
     metric.n_obs += 1
@@ -124,6 +128,7 @@ end
 Base.Symbol(metric::EmergentKLDivergence) = Symbol("kldiv_" * string(Symbol(metric.f)))
 
 function calc_kl_div_categorical{I<:Real, J<:Real}(counts_p::AbstractVector{I}, counts_q::AbstractVector{J})
+    debug = open("debug.log", "a"); println(debug, "calc_kl_div_categorical{I<:Real, J<:Real}(counts_p::AbstractVector{I}, counts_q::AbstractVector{J})");  close(debug)
 
     #=
     Calculate the KL-divergence between two categorical distributions
@@ -157,6 +162,7 @@ function extract!(
     roadway::Roadway,
     egoid::Int,
     )
+    debug = open("debug.log", "a"); println(debug, "extract!(metric::EmergentKLDivergence,...)");  close(debug)
 
     v_orig, v_sim = NaN, NaN
     if isa(metric.f, AbstractFeature)
@@ -187,6 +193,7 @@ function extract_log_likelihood(model::DriverModel, rec::SceneRecord, roadway::R
     prime_history::Int = 0,
     scene::Scene = Scene(),
     )
+    debug = open("debug.log", "a"); println(debug, "extract_log_likelihood(model::DriverModel, rec::SceneRecord, roadway::Roadway, egoid::Int;)");  close(debug)
 
     A = action_type(model)
 

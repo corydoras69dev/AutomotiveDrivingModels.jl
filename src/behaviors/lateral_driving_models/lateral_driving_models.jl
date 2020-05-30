@@ -37,6 +37,7 @@ function track_lateral!(model::ProportionalLaneTracker, laneoffset::Float64, lat
     model
 end
 function observe!(model::ProportionalLaneTracker, scene::Scene, roadway::Roadway, egoid::Int)
+    debug = open("debug.log", "a"); println(debug, "observe!(model::ProportionalLaneTracker, scene::Scene, roadway::Roadway, egoid::Int)");  close(debug)
 
     ego_index = get_index_of_first_vehicle_with_id(scene, egoid)
     veh_ego = scene[ego_index]
