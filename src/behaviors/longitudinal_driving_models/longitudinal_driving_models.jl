@@ -51,12 +51,12 @@ type ProportionalSpeedTracker <: LongitudinalDriverModel
 end
 get_name(::ProportionalSpeedTracker) = "ProportionalSpeedTracker"
 function set_desired_speed!(model::ProportionalSpeedTracker, v_des::Float64)
-    debug = open("debug.log", "a"); println(debug, "set_desired_speed!(model::ProportionalSpeedTracker, v_des::Float64)");  close(debug)
+    #debug = open("debug.log", "a"); println(debug, "set_desired_speed!(model::ProportionalSpeedTracker, v_des::Float64)");  close(debug)
     model.v_des = v_des
     model
 end
 function track_longitudinal!(model::ProportionalSpeedTracker, scene::Scene, roadway::Roadway, ego_index::Int, target_index::Int)
-    debug = open("debug.log", "a"); println(debug, "track_longitudinal!(model::ProportionalSpeedTracker, scene::Scene, roadway::Roadway, ego_index::Int, target_index::Int)");  close(debug)
+    #debug = open("debug.log", "a"); println(debug, "track_longitudinal!(model::ProportionalSpeedTracker, scene::Scene, roadway::Roadway, ego_index::Int, target_index::Int)");  close(debug)
     veh_ego = scene[ego_index]
     v = veh_ego.state.v
 
@@ -66,7 +66,7 @@ function track_longitudinal!(model::ProportionalSpeedTracker, scene::Scene, road
     model
 end
 function observe!(model::ProportionalSpeedTracker, scene::Scene, roadway::Roadway, egoid::Int)
-    debug = open("debug.log", "a"); println(debug, "observe!(model::ProportionalSpeedTracker, scene::Scene, roadway::Roadway, egoid::Int)");  close(debug)
+    #debug = open("debug.log", "a"); println(debug, "observe!(model::ProportionalSpeedTracker, scene::Scene, roadway::Roadway, egoid::Int)");  close(debug)
     ego_index = get_index_of_first_vehicle_with_id(scene, egoid)
     track_longitudinal!(model, scene, roadway, ego_index, 0)
     model
@@ -117,7 +117,7 @@ type PrincetonLongitudinalDriver <: LongitudinalDriverModel
 end
 get_name(::PrincetonLongitudinalDriver) = "PrincetonLongitudinalDriver"
 function set_desired_speed!(model::PrincetonLongitudinalDriver, v_des::Float64)
-    debug = open("debug.log", "a"); println(debug, "set_desired_speed!(model::PrincetonLongitudinalDriver, v_des::Float64)");  close(debug)
+    #debug = open("debug.log", "a"); println(debug, "set_desired_speed!(model::PrincetonLongitudinalDriver, v_des::Float64)");  close(debug)
     model.v_des = v_des
     model
 end
@@ -139,7 +139,7 @@ function track_longitudinal!(model::PrincetonLongitudinalDriver, scene::Scene, r
     model
 end
 function observe!(model::PrincetonLongitudinalDriver, scene::Scene, roadway::Roadway, egoid::Int)
-    debug = open("debug.log", "a"); println(debug, "observe!(model::PrincetonLongitudinalDriver, scene::Scene, roadway::Roadway, egoid::Int)");  close(debug)
+    #debug = open("debug.log", "a"); println(debug, "observe!(model::PrincetonLongitudinalDriver, scene::Scene, roadway::Roadway, egoid::Int)");  close(debug)
     ego_index = get_index_of_first_vehicle_with_id(scene, egoid)
     track_longitudinal!(model, scene, roadway, ego_index, 0)
     model

@@ -47,7 +47,7 @@ function Base.copy!(v::Vector{Float64}, a::AccelTurnrate)
     v
 end
 function propagate(veh::Vehicle, action::AccelTurnrate, context::IntegratedContinuous, roadway::Roadway)
-    debug = open("debug.log", "a"); println(debug, "propagate(veh::Vehicle, action::AccelTurnrate, context::IntegratedContinuous, roadway::Roadway)");  close(debug)
+    #debug = open("debug.log", "a"); println(debug, "propagate(veh::Vehicle, action::AccelTurnrate, context::IntegratedContinuous, roadway::Roadway)");  close(debug)
 
     a = action.a # accel
     ω = action.ω # turnrate
@@ -95,7 +95,7 @@ function Base.copy!(v::Vector{Float64}, a::AccelDesang)
     v
 end
 function propagate(veh::Vehicle, action::AccelDesang, context::IntegratedContinuous, roadway::Roadway)
-    debug = open("debug.log", "a"); println(debug, "propagate(veh::Vehicle, action::AccelDesang, context::IntegratedContinuous, roadway::Roadway)");  close(debug)
+    #debug = open("debug.log", "a"); println(debug, "propagate(veh::Vehicle, action::AccelDesang, context::IntegratedContinuous, roadway::Roadway)");  close(debug)
 
     a = action.a # accel
     ϕdes = action.ϕdes # desired heading angle
@@ -141,7 +141,7 @@ function Base.copy!(v::Vector{Float64}, a::LatLonAccel)
     v
 end
 function propagate(veh::Vehicle, action::LatLonAccel, context::IntegratedContinuous, roadway::Roadway)
-    debug = open("debug.log", "a"); println(debug, "propagate(veh::Vehicle, action::LatLonAccel, context::IntegratedContinuous, roadway::Roadway)");  close(debug)
+    #debug = open("debug.log", "a"); println(debug, "propagate(veh::Vehicle, action::LatLonAccel, context::IntegratedContinuous, roadway::Roadway)");  close(debug)
 
     a_lat = action.a_lat
     a_lon = action.a_lon
@@ -200,7 +200,7 @@ function Base.copy!(v::Vector{Float64}, a::LaneFollowingAccel)
     v
 end
 function propagate(veh::Vehicle, action::LaneFollowingAccel, context::IntegratedContinuous, roadway::Roadway)
-    debug = open("debug.log", "a"); println(debug, "propagate(veh::Vehicle, action::LaneFollowingAccel, context::IntegratedContinuous, roadway::Roadway)");  close(debug)
+    #debug = open("debug.log", "a"); println(debug, "propagate(veh::Vehicle, action::LaneFollowingAccel, context::IntegratedContinuous, roadway::Roadway)");  close(debug)
 
     a_lon = action.a
 

@@ -86,7 +86,7 @@ function set_desired_speed!(model::TimLaneChanger, v_des::Float64)
     model
 end
 function observe!(model::TimLaneChanger, scene::Scene, roadway::Roadway, egoid::Int)
-    debug = open("debug.log", "a"); println(debug, "observe!(model::TimLaneChanger, scene::Scene, roadway::Roadway, egoid::Int)");  close(debug)
+    #debug = open("debug.log", "a"); println(debug, "observe!(model::TimLaneChanger, scene::Scene, roadway::Roadway, egoid::Int)");  close(debug)
 
     rec = model.rec
     update!(rec, scene)
