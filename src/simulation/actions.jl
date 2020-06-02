@@ -273,7 +273,7 @@ end
 function AutomotiveDrivingModels.propagate(veh::Vehicle, action::AccelSteeringAngle, context::IntegratedContinuous, roadway::Roadway,
     geom::BicycleGeom=BicycleGeom(),
     )
-    debug = open("debug.log", "a"); println(debug, "AutomotiveDrivingModels.propagate(veh::Vehicle, action::AccelSteeringAngle, context::IntegratedContinuous, roadway::Roadway,...)");  close(debug)
+    #debug = open("debug.log", "a"); println(debug, "AutomotiveDrivingModels.propagate(veh::Vehicle, action::AccelSteeringAngle, context::IntegratedContinuous, roadway::Roadway,...)");  close(debug)
 
     L = geom.wheel_base
     l = geom.wheel_base_offset
